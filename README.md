@@ -18,6 +18,7 @@ If Git is missing, it runs:
 4. ```git clone https://github.com/BTermux/Green-Fly-Script/edit/main/``` --> command is used to create a copy of a specific repository or branch within a repository.
 5. ```cd Green-Fly-Script``` --> Changing your current working directory within file system to the cloned repository
 6. ```ls``` --> Lists all files in the current directory
+
 ✅ Example When Git Is Installed:
 ```bash
 $ dpkg -l | grep -q git || (sudo apt update && sudo apt install -y git)
