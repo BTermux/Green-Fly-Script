@@ -34,6 +34,8 @@ The following packages will be installed: git
 ...
 ```
 
+# -------------------------------
+
 ### LAX (For example: Termux, Terminal (Only Android 15), e. t. c.)
 ```bash
 command -v git >/dev/null 2>&1 || apt update && apt install -y git && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls
