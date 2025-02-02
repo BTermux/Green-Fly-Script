@@ -62,14 +62,14 @@ minusButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
 
 --> Flying Speed TextBox <--
 local textBox = Instance.new("TextBox", frame)
-textBox.Size = UDim2.new(0, 120, 0, 35)  -- Сделаем высоту как у кнопок
-textBox.Position = UDim2.new(0, 70, 0, 75)  -- Сдвигаем текстбокс чуть ниже
+textBox.Size = UDim2.new(0, 120, 0, 35)  
+textBox.Position = UDim2.new(0, 70, 0, 75) 
 textBox.PlaceholderText = "Fly Speed"
 textBox.Text = "50"
 textBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 textBox.TextColor3 = Color3.fromRGB(0, 255, 0)
 textBox.Font = Enum.Font.LuckiestGuy
-textBox.TextSize = 16  -- Уменьшаем размер шрифта
+textBox.TextSize = 16 
 textBox.BorderSizePixel = 2
 textBox.BorderColor3 = Color3.fromRGB(0, 255, 0)
 textBox.TextScaled = true
@@ -77,7 +77,7 @@ textBox.TextScaled = true
 --> More Speed Button <--
 local plusButton = Instance.new("TextButton", frame)
 plusButton.Size = UDim2.new(0, 50, 0, 35)
-plusButton.Position = UDim2.new(0, 200, 0, 75)  -- Сдвигаем кнопки ниже
+plusButton.Position = UDim2.new(0, 200, 0, 75)  
 plusButton.Text = "+"
 plusButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 plusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -103,7 +103,7 @@ button.BorderColor3 = Color3.fromRGB(0, 255, 0)
 local credits = Instance.new("TextLabel", frame)
 credits.Size = UDim2.new(1, -10, 0, 60)
 credits.Position = UDim2.new(0, 5, 0, 180)
-credits.Text = "Credits:\nhttps://scriptblox.com/u/alimkulov"
+credits.Text = "Credits:\nhttps://github.com/BTermux"
 credits.TextColor3 = Color3.fromRGB(0, 255, 0)
 credits.Font = Enum.Font.LuckiestGuy
 credits.TextSize = 12
