@@ -8,4 +8,6 @@
 dpkg -l | grep -q git || (sudo apt update && sudo apt install -y git) && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls```
 
 ### LAX (For example: Termux, Terminal (Only Android 15), e. t. c.)
-```command -v git >/dev/null 2>&1 || apt update && apt install -y git && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls```
+```
+command -v git >/dev/null 2>&1 || apt update && apt install -y git && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls
+```
