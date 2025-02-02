@@ -1,6 +1,8 @@
 # Green-Fly-Script
 ## Executing Script:
-```loadstring(game:HttpGet("https://raw.githubusercontent.com/BTermux/Green-Fly-Script/refs/heads/main/main_script.lua",true))()```
+```
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BTermux/Green-Fly-Script/refs/heads/main/main_script.lua",true))()
+```
 
 ## Cloning Repository in Terminal - WSL (Windows Subsystem for Linux) and LAX (Linux on Android eXperience):
 ### WSL (For example: Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, e. t. c.)
