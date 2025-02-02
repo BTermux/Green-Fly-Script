@@ -72,3 +72,7 @@ $ command -v git
 $ command -v git >/dev/null 2>&1
 # No error message (stderr is also redirected)
 ```
+## Updating GitHub RepoSiTory:
+```bash
+git pull
+```
