@@ -7,7 +7,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/BTermux/Green-Fly-Scr
 ## Cloning Repository in Terminal - WSL (Windows Subsystem for Linux) and LAX (Linux on Android eXperience):
 ### WSL (For example: Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, e. t. c.)
 ```bash
-dpkg -l | grep -q git || (sudo apt update && sudo apt install -y git) && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls
+dpkg -l | grep -q git || (sudo apt update && sudo apt install -y git) && sudo apt update && sudo apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script.git && cd Green-Fly-Script && ls
 ```
 How is thats works?
 1. ```dpkg -l``` --> lists all installed packages on Debian-based systems (e.g., Ubuntu, Debian, Termux with APT). The output includes package names, versions, and descriptions.
@@ -39,7 +39,7 @@ The following packages will be installed: git
 
 ### LAX (For example: Termux, Terminal (Only Android 15), e. t. c.)
 ```bash
-command -v git >/dev/null 2>&1 || apt update && apt install -y git && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script/edit/main/ && cd Green-Fly-Script && ls
+command -v git >/dev/null 2>&1 || (apt update && apt install -y git) && apt update && apt upgrade -y && git clone https://github.com/BTermux/Green-Fly-Script.git && cd Green-Fly-Script && chmod +x * && ls
 ```
 How is thats works?
 1. ```command -v git```--> Checks if the git command exists in the system. If git is installed, it returns the path to the executable (e.g., /usr/bin/git). If git is not installed, it returns nothing and exits with a non-zero status code (error).
@@ -53,7 +53,8 @@ How is thats works?
 9. ```&& apt upgrade -y``` --> Upgrades all installed packages to their latest available versions. -y means automatic confirmation, so the upgrade proceeds without asking. Unlike apt install, which installs a specific package, apt upgrade updates ALL packages that have newer versions avalaible.
 10. ```git clone https://github.com/BTermux/Green-Fly-Script/edit/main/``` --> command is used to create a copy of a specific repository or branch within a repository.
 11. ```cd Green-Fly-Script``` --> Changing your current working directory within file system to the cloned repository
-12. ```ls``` --> Lists all files in the current directory
+12. ```chmod +x``` --> Same as ```sudo``` but for LAX 
+13. ```ls``` --> Lists all files in the current directory
 
 ✅ Example, when ```git``` is installed:
 ```bash
