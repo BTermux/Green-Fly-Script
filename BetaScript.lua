@@ -17,6 +17,14 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Duration = 30
 })
 
+--> Notification 2 <--
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Original Script - https://github.com/BTermux/Green-Fly-Script/", 
+    Text = "Original script copied in your clipboard", 
+    Button1 = "Ok",
+    Duration = 30
+})
+
 --> Copy Credits script <--
 loadstring(game:HttpGet("https://gist.githubusercontent.com/BTermux/e53697866169d4d40f524f8a14bbb26b/raw/76ae9d07abe12d7cc3533baaf6f72100a76ff2a1/Copy-Script",true))()
 
