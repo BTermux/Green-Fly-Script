@@ -9,7 +9,7 @@ local UIS = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 
---> Notification
+--> Notification <--
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "The script will be loaded as soon as the game loads", 
     Text = "Creator's ScriptBlox account copied in your clipboard", 
@@ -17,16 +17,25 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Duration = 30
 })
 
+--> Notification 2 <--
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Original Script - https://github.com/BTermux/Green-Fly-Script/", 
+    Text = "Original script copied in your clipboard", 
+    Button1 = "Ok",
+    Duration = 30
+})
+
 --> Copy Credits script <--
 loadstring(game:HttpGet("https://gist.githubusercontent.com/BTermux/e53697866169d4d40f524f8a14bbb26b/raw/76ae9d07abe12d7cc3533baaf6f72100a76ff2a1/Copy-Script",true))()
 
-----> GuI Setuping <----
+----> GUI Setuping <----
 
---> Screen GuI <--
+--> Screen GUI <--
 local screenGui = Instance.new("ScreenGui", player.PlayerGui)
 screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
---> GuI Frame <--
+--> GUI Frame <--
 local frame = Instance.new("Frame", screenGui)
 frame.Size = UDim2.new(0, 260, 0, 230)
 frame.Position = UDim2.new(1, -280, 0, 40)
@@ -35,8 +44,15 @@ frame.Active = true
 frame.Draggable = true
 frame.BorderSizePixel = 3
 frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
+frame.ZIndex = 10
+frame.ClipsDescendants = true
 
---> GuI Title <--
+--> Make the GUI round <--
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 20)
+UICorner.Parent = frame
+
+--> GUI Title <--
 local titleLabel = Instance.new("TextLabel", frame)
 titleLabel.Size = UDim2.new(1, -10, 0, 30)
 titleLabel.Position = UDim2.new(0, 5, 0, 5)
@@ -47,6 +63,12 @@ titleLabel.TextSize = 20
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.TextWrapped = true
+titleLabel.ZIndex = 11
+
+--> Round the title <--
+local TitleCorner = Instance.new("UICorner")
+TitleCorner.CornerRadius = UDim.new(0, 20)
+TitleCorner.Parent = titleLabel
 
 --> Less Speed Button <--
 local minusButton = Instance.new("TextButton", frame)
@@ -59,6 +81,12 @@ minusButton.Font = Enum.Font.LuckiestGuy
 minusButton.TextSize = 20
 minusButton.BorderSizePixel = 2
 minusButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
+minusButton.Parent = frame
+
+--> Round Less Speed Button <--
+local minusCorner = Instance.new("UICorner")
+minusCorner.CornerRadius = UDim.new(0, 10)
+minusCorner.Parent = minusButton
 
 --> Flying Speed TextBox <--
 local textBox = Instance.new("TextBox", frame)
@@ -68,11 +96,17 @@ textBox.PlaceholderText = "Fly Speed"
 textBox.Text = "50"
 textBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 textBox.TextColor3 = Color3.fromRGB(0, 255, 0)
-textBox.Font = Enum.Font.LuckiestGuy
+textBox.Font = Enum.Font.LuckiestGuy 
 textBox.TextSize = 16 
 textBox.BorderSizePixel = 2
 textBox.BorderColor3 = Color3.fromRGB(0, 255, 0)
 textBox.TextScaled = true
+textBox.Parent = frame
+
+--> Round Flying Speed TextBox <--
+local textBoxCorner = Instance.new("UICorner")
+textBoxCorner.CornerRadius = UDim.new(0, 10)
+textBoxCorner.Parent = textBox
 
 --> More Speed Button <--
 local plusButton = Instance.new("TextButton", frame)
@@ -85,6 +119,12 @@ plusButton.Font = Enum.Font.LuckiestGuy
 plusButton.TextSize = 20
 plusButton.BorderSizePixel = 2
 plusButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
+plusButton.Parent = frame
+
+--> Round More Speed Button <--
+local plusCorner = Instance.new("UICorner")
+plusCorner.CornerRadius = UDim.new(0, 10)
+plusCorner.Parent = plusButton
 
 --> Fly Button - E to Fly <--
 -- ========> Especially for Phone Exploits Users <======== --   
@@ -98,6 +138,12 @@ button.Font = Enum.Font.LuckiestGuy
 button.TextSize = 20
 button.BorderSizePixel = 2
 button.BorderColor3 = Color3.fromRGB(0, 255, 0)
+button.Parent = frame
+
+-->Round Fly Button <--
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 10)
+buttonCorner.Parent = button 
 
 --> Credits (Please also write my credits if you forked this script) <--
 local credits = Instance.new("TextLabel", frame)
@@ -111,10 +157,55 @@ credits.BackgroundTransparency = 1
 credits.TextScaled = true
 credits.TextWrapped = true
 credits.BorderSizePixel = 0
+credits.Parent = frame
+
+--> Minimize Button <--
+local MinimizeButton = Instance.new("TextButton", frame)
+MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
+MinimizeButton.Position = UDim2.new(1, -35, 0, 5)
+MinimizeButton.Text = "-"
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green color
+MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.Font = Enum.Font.Fondamento
+MinimizeButton.TextSize = 18
+MinimizeButton.ZIndex = 12
+MinimizeButton.Parent = frame
+
+--> Round the minimize button <--
+local MinimizeCorner = Instance.new("UICorner")
+MinimizeCorner.CornerRadius = UDim.new(0, 15)
+MinimizeCorner.Parent = MinimizeButton
+
+local minimized = false
+MinimizeButton.MouseButton1Click:Connect(function()
+    minimized = not minimized
+    if minimized then
+        frame:TweenSize(UDim2.new(0, 220, 0, 40), "Out", "Quad", 0.3, true)
+        MinimizeButton.Text = "+"
+        titleLabel.Visible = true
+        textBox.Visible = false
+        for _, child in pairs(frame:GetChildren()) do
+            if child:IsA("TextButton") or child:IsA("TextLabel") then
+                if child ~= titleLabel and child ~= MinimizeButton then
+                    child.Visible = false
+                end
+            end
+        end
+    else
+        frame:TweenSize(UDim2.new(0, 260, 0, 230), "Out", "Quad", 0.3, true)
+        MinimizeButton.Text = "-"
+        for _, child in pairs(frame:GetChildren()) do
+            if child:IsA("TextButton") or child:IsA("TextLabel") then
+                child.Visible = true
+                textBox.Visible = true
+            end
+        end
+    end
+end)
 
 --> Configure script <--
-local flySpeed = 50
-local flying = false
+local flySpeed = 50 --< Fly Speed at Start <--
+local flying = false 
 
 --> TextBox configure <--
 textBox.FocusLost:Connect(function()
