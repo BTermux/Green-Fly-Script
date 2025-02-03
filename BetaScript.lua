@@ -1,3 +1,4 @@
+--> This is only for Pre-Updates (! Have Bugs !)
 repeat
     wait()
 until game:IsLoaded()
