@@ -1,0 +1,2 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BTermux/Green-Fly-Script/refs/heads/main/main_script.lua",true))()
+--> This is for mobile version GitHub, who cannot copy in .md <--
