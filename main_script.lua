@@ -26,6 +26,9 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 
 --> Copy Credits script <--
+getgenv().Link1 = https://scriptblox.com/u/alimkulov
+getgenv().Link2 = https://github.com/BTermux/Green-Fly-Script/
+--> This is 2 links, that will be copied while execute, you can change them <--
 loadstring(game:HttpGet("https://gist.githubusercontent.com/BTermux/e53697866169d4d40f524f8a14bbb26b/raw/76ae9d07abe12d7cc3533baaf6f72100a76ff2a1/Copy-Script",true))()
 
 ----> GUI Setuping <----
