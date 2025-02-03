@@ -9,7 +9,7 @@ local UIS = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 
---> Notification
+--> Notification <--
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "The script will be loaded as soon as the game loads", 
     Text = "Creator's ScriptBlox account copied in your clipboard", 
@@ -20,31 +20,31 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 --> Copy Credits script <--
 loadstring(game:HttpGet("https://gist.githubusercontent.com/BTermux/e53697866169d4d40f524f8a14bbb26b/raw/76ae9d07abe12d7cc3533baaf6f72100a76ff2a1/Copy-Script",true))()
 
-----> GuI Setuping <----
+----> GUI Setuping <----
 
---> Screen GuI <--
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "GreenFlyScript"
-ScreenGui.ResetOnSpawn = false
-ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+--> Screen GUI <--
+local screenGui = Instance.new("ScreenGui", player.PlayerGui)
+screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
---> GuI Frame <--
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(1, 260, 0, 230)
+--> GUI Frame <--
+local frame = Instance.new("Frame", screenGui)
+frame.Size = UDim2.new(0, 260, 0, 230)
 frame.Position = UDim2.new(1, -280, 0, 40)
-frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20) --> Really Green <---
+frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 frame.Active = true
 frame.Draggable = true
-frame.BorderSizePixel = 0
+frame.BorderSizePixel = 3
 frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
-frame.Parent = ScreenGui
+frame.ZIndex = 10
+frame.ClipsDescendants = true
 
---> Making the GUI round <--
+--> Make the GUI round <--
 local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(0, 20)
 UICorner.Parent = frame
 
---> GuI Title <--
+--> GUI Title <--
 local titleLabel = Instance.new("TextLabel", frame)
 titleLabel.Size = UDim2.new(1, -10, 0, 30)
 titleLabel.Position = UDim2.new(0, 5, 0, 5)
@@ -55,12 +55,12 @@ titleLabel.TextSize = 20
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextScaled = true
 titleLabel.TextWrapped = true
-TextLabel.Parent = frame
+titleLabel.ZIndex = 11
 
 --> Round the title <--
-local textLabelCorner = Instance.new("UICorner")
-textLabelCorner.CornerRadius = UDim.new(0, 20)
-textLabelCorner.Parent = TextLabel
+local TitleCorner = Instance.new("UICorner")
+TitleCorner.CornerRadius = UDim.new(0, 20)
+TitleCorner.Parent = titleLabel
 
 --> Less Speed Button <--
 local minusButton = Instance.new("TextButton", frame)
@@ -97,7 +97,7 @@ textBox.Parent = frame
 
 --> Round Flying Speed TextBox <--
 local textBoxCorner = Instance.new("UICorner")
-textBoxCorner.CornerRadius = UDim.mew(0, 10)
+textBoxCorner.CornerRadius = UDim.new(0, 10)
 textBoxCorner.Parent = textBox
 
 --> More Speed Button <--
@@ -115,7 +115,7 @@ plusButton.Parent = frame
 
 --> Round More Speed Button <--
 local plusCorner = Instance.new("UICorner")
-plusCorner.CornerRadius - UDim.new(0, 10)
+plusCorner.CornerRadius = UDim.new(0, 10)
 plusCorner.Parent = plusButton
 
 --> Fly Button - E to Fly <--
@@ -151,43 +151,48 @@ credits.TextWrapped = true
 credits.BorderSizePixel = 0
 credits.Parent = frame
 
---> Minimize Button -- add <--
-local MinimizeButton = Instance.new("TextButton")
+--> Minimize Button <--
+local MinimizeButton = Instance.new("TextButton", frame)
 MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
 MinimizeButton.Position = UDim2.new(1, -35, 0, 5)
 MinimizeButton.Text = "-"
-MinimizeButton.BackgroundColor3 = Color3.fromRGB(139, 69, 19) -- Saddle brown
-MinimizeButton.TextColor3 = Color3.fromRGB(255, 248, 220) -- Cornsilk
-MinimizeButton.Font = Enum.Font.LuckiestGuy
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green color
+MinimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeButton.Font = Enum.Font.Fondamento
 MinimizeButton.TextSize = 18
+MinimizeButton.ZIndex = 12
 MinimizeButton.Parent = frame
 
---> Round Minimize Button <--
+--> Round the minimize button <--
 local MinimizeCorner = Instance.new("UICorner")
 MinimizeCorner.CornerRadius = UDim.new(0, 15)
-MinimizeCorner.Parent = frame
+MinimizeCorner.Parent = MinimizeButton
 
---> Minimize Functionality <--
+local minimized = false
 MinimizeButton.MouseButton1Click:Connect(function()
     minimized = not minimized
     if minimized then
         frame:TweenSize(UDim2.new(0, 220, 0, 40), "Out", "Quad", 0.3, true)
         MinimizeButton.Text = "+"
-        minusButton.Visible = false
-        plusButton.Visible = false
+        titleLabel.Visible = true
         textBox.Visible = false
-        button.Visible = false
-        credits.Visible = false
+        for _, child in pairs(frame:GetChildren()) do
+            if child:IsA("TextButton") or child:IsA("TextLabel") then
+                if child ~= titleLabel and child ~= MinimizeButton then
+                    child.Visible = false
+                end
+            end
+        end
     else
-        frame:TweenSize(UDim2.new(1, 260, 0, 230), "Out", "Quad", 0.3, true)
+        frame:TweenSize(UDim2.new(0, 260, 0, 230), "Out", "Quad", 0.3, true)
         MinimizeButton.Text = "-"
-        minusButton.Visible = true
-        plusButton.Visible = true
-        textBox.Visible = true
-        button.Visible = true
-        credits.Visible = true
+        for _, child in pairs(frame:GetChildren()) do
+            if child:IsA("TextButton") or child:IsA("TextLabel") then
+                child.Visible = true
+                textBox.Visible = true
+            end
+        end
     end
-    playSound("12221967")
 end)
 
 --> Configure script <--
